@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/style.css' %}"
+</head>
+<body>
+   <!-- <table class="table">
+        <tr>
+            <th>task_name</th>
+            <th> Status</th>
+            <th> User</th>
+            <th> Dates</th>
+        </tr>
+        {% for todo in todos %}
+        <tr>
+            <td>{{todo.task_name}}</td>
+            <td>{{todo.status}}</td>
+            <td>{{todo.user}}</td>
+            <td>{{todo.date}}</td>
+        </tr>
+        {% endfor %}
+    </table>-->
+<h1> --List Todos--</h1>
+   <div class="container">
+       <div class="row">
+           {% for todo in todos %}
+             <div class="col-3">
+                 <div class="card" style="width: 18rem;">
+                     <div class="card-body">
+                        <h5 class="card-title">{{todo.task_name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{todo.status}}</h6>
+                        <p class="card-text">{{todo.user}}</p>
+                        <p class="card-text">{{date}}</p>
+                        <a href="{%url 'update_todo' todo.id%}" class="btn btn-success">Edit</a>
+                        <a href="{%url 'delete_todo' todo.id%}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+             </div>
+           {% endfor %}
+       </div>
+   </div>
+
+</body>
+</html>
